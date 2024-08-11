@@ -62,14 +62,19 @@ addLayer("p", {
             description: "Boosts prestige point gain via points",
             cost: new Decimal(64),
             effect() {
-                return player.points.add(1).log(3).add(1).pow(1.5)
+                return player.points.add(1).log(3).add(1).pow(1.6)
             },
             effectDisplay() { return format(upgradeEffect('p', 16))+"x" }, // Add formatting to the effect
         },
         21: {
           title: "Mysterious point source",
           description: "Gain MORE points",
-          cost: new Decimal(2700),
+          cost: new Decimal(1024),
         },
+        22: {
+            title: "makethenumbersbigger()",
+            description: "Read title",
+            cost: new Decimal(3000),
+          },
     },
 })

@@ -48,5 +48,14 @@ addLayer("p", {
             description: "Double your point gain... you get it by now",
             cost: new Decimal(4)
         },
+        15: {
+            title: "Finally, some novelty",
+            description: "Boosts point gain via prestige points",
+            cost: new Decimal(16),
+            effect() {
+                return player['p'].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect('p', 15))+"x" }, // Add formatting to the effect
+        },
     },
 })

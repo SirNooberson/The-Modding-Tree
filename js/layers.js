@@ -43,5 +43,10 @@ addLayer("p", {
             description: "Double your point gain... yet again",
             cost: new Decimal(3)
         },
+        14: {
+            title: "Doublifier 4: Running Out Of Names",
+            description: "Double your point gain... you get it by now",
+            cost: new Decimal(4)
+        },
     },
 })

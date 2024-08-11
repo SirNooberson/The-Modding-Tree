@@ -15,6 +15,7 @@ addLayer("p", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('p', 16)) gain = gain.times(upgradeEffect)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -54,6 +55,15 @@ addLayer("p", {
             cost: new Decimal(16),
             effect() {
                 return player['p'].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect('p', 15))+"x" }, // Add formatting to the effect
+        },
+        16: {
+            title: "ytlevon emos ,yllaniF",
+            description: "Boosts prestige point gain via points",
+            cost: new Decimal(64),
+            effect() {
+                return player.points.add(1).pow(0.2)
             },
             effectDisplay() { return format(upgradeEffect('p', 15))+"x" }, // Add formatting to the effect
         },

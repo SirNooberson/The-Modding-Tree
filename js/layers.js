@@ -24,7 +24,7 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown() {return true}
     ,
 
     upgrades: {
@@ -32,6 +32,11 @@ addLayer("p", {
             title: "Doublifier",
             description: "Double your point gain.",
             cost: new Decimal(1)
+        },
+        12: {
+            title: "Doublifier 2: The Sequel",
+            description: "Double your point gain... again",
+            cost: new Decimal(2)
         },
     },
 })

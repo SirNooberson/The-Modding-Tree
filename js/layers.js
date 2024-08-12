@@ -16,6 +16,7 @@ addLayer("p", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('p',25)) mult = mult.times(3)
+        if (hasUpgrade('p',32)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -97,10 +98,15 @@ addLayer("p", {
             description: "bruh.mp3",
             cost: new Decimal(42069),
         },
-        27: {
+        31: {
             title: "Doublifier 7: It's About Time",
             description: "Unlocks something very epic",
             cost: new Decimal(1000000),
+        },
+        32: {
+            title: "Impossible?",
+            description: "Double prestige point gain cuz why not",
+            cost: new Decimal(1e24),
         },
     },
 })

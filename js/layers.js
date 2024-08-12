@@ -15,6 +15,7 @@ addLayer("p", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('p',25)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -80,6 +81,26 @@ addLayer("p", {
             title: "Useless Prestiging",
             description: "Gain 5% of pending prestige points per second",
             cost: new Decimal(6969),
+        },
+        24: {
+            title: "Doublifier 5: This Again",
+            description: "bruh.mp3",
+            cost: new Decimal(42069),
+        },
+        25: {
+            title: "Prestigious Amplifier",
+            description: "Let's mix things up, shall we? 3x prestige point gain",
+            cost: new Decimal(42069),
+        },
+        26: {
+            title: "Doublifier 6: Once More",
+            description: "bruh.mp3",
+            cost: new Decimal(42069),
+        },
+        27: {
+            title: "Doublifier 7: It's About Time",
+            description: "Unlocks something very epic",
+            cost: new Decimal(1000000),
         },
     },
 })

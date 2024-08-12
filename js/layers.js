@@ -6,7 +6,7 @@ addLayer("p", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#00FFFF",
     requires: new Decimal(5), // Can be a function that takes requirement increases into account
     resource: "prestige points", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
@@ -26,7 +26,7 @@ addLayer("p", {
     ],
     layerShown() {return true}
     ,
-
+    passiveGeneration() { return (hasUpgrade("p", 23)?0.05:0)  },
     upgrades: {
         11: {
             title: "Doublifier",
@@ -72,9 +72,14 @@ addLayer("p", {
           cost: new Decimal(1024),
         },
         22: {
-            title: "makethenumbersbigger()",
+            title: "biggernumbers()",
             description: "Read title",
             cost: new Decimal(3000),
           },
+        23: {
+            title: "Useless Prestiging",
+            description: "Gain 5% of pending prestige points per second",
+            cost: new Decimal(6969),
+        },
     },
 })

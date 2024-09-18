@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "Bruh Update",
+	num: "0.2",
+	name: "Rebirth Update",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -54,6 +54,7 @@ function getPointGen() {
     if (hasUpgrade('p', 24)) gain = gain.times(2)
 	if (hasUpgrade('p', 26)) gain = gain.times(2)
 	if (hasUpgrade('p', 31)) gain = gain.times(2)
+	if (hasUpgrade('r', 11)) gain = gain.times(2)
 	return gain
 }
 

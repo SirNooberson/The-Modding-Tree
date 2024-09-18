@@ -17,6 +17,7 @@ addLayer("p", {
         mult = new Decimal(1)
         if (hasUpgrade('p',25)) mult = mult.times(3)
         if (hasUpgrade('p',32)) mult = mult.times(2)
+        if (hasUpgrade('r',11)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -122,7 +123,7 @@ addLayer("r", {
     color: "FFFFFF",
     requires: new Decimal(1000000), // Can be a function that takes requirement increases into account
     resource: "rebirth points", // Name of prestige currency
-    baseResource: "prestige points", // Name of resource prestige is based on
+    baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.1, // Prestige currency exponent
@@ -135,8 +136,15 @@ addLayer("r", {
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "r", description: "R: Reset for rebirth points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown() {return (hasUpgrade('p',31))},
-
+    layerShown() {return true}
+    ,
+    upgrades: {
+      11: {
+        title: "Doublifier ω: STOP IT!",
+        description: "why u do dis to me. oh by the way x2 points and prestige points",
+        cost: new Decimal(1)
+    }
+    }
 })

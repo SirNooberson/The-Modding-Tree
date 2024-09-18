@@ -22,6 +22,7 @@ addLayer("p", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
+        if (hasUpgrade('r',21)) exp = exp.add(0.05)
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -145,6 +146,11 @@ addLayer("r", {
         title: "Doublifier ω: STOP IT!",
         description: "why u do dis to me. oh by the way x2 points and prestige points",
         cost: new Decimal(1)
-    }
+          },
+      21: {
+        title: "Prestige Powah",
+        description: "Do people even read these?",
+        cost: new Decimal(1)
+      }
     }
 })

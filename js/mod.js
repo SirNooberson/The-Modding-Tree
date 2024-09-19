@@ -49,12 +49,14 @@ function getPointGen() {
     if (hasUpgrade('p', 14)) gain = gain.times(2)
     if (hasUpgrade('p', 15)) gain = gain.times(upgradeEffect('p', 15))
 	if (hasUpgrade('p', 16)) gain = gain.times(upgradeEffect('p', 16))
-    if (hasUpgrade('p', 21)) gain = gain.times(5.66)
-	if (hasUpgrade('p', 22)) gain = gain.times(5.77)
+    if (hasUpgrade('p', 21)) gain = gain.times(5.88)
+	if (hasUpgrade('p', 22)) gain = gain.times(5.99)
     if (hasUpgrade('p', 24)) gain = gain.times(2)
 	if (hasUpgrade('p', 26)) gain = gain.times(2)
 	if (hasUpgrade('p', 31)) gain = gain.times(2)
 	if (hasUpgrade('r', 11)) gain = gain.times(2)
+	if (hasUpgrade('r',22)) gain = gain.times(upgradeEffect('r',22))
+	if (hasBuyable('r',11))gain = gain.times(buyableEffect('r',11))
 	
 	return gain
 }

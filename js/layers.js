@@ -18,11 +18,11 @@ addLayer("p", {
         if (hasUpgrade('p',25)) mult = mult.times(3)
         if (hasUpgrade('p',32)) mult = mult.times(2)
         if (hasUpgrade('r',11)) mult = mult.times(2)
+        if (hasUpgrade('r',21)) mult = mult.times(1.431546345641234)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
-        if (hasUpgrade('r',21)) exp = exp.add(0.05)
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -59,7 +59,7 @@ addLayer("p", {
             effect() {
                 return player['p'].points.add(1).pow(0.5)
             },
-            effectDisplay() { return format(upgradeEffect('p', 15))+"x" }, // Add formatting to the effect
+            effectDisplay() { return format("×"+upgradeEffect('p', 15))}, // Add formatting to the effect
         },
         16: {
             title: "Selfboost",
@@ -68,7 +68,7 @@ addLayer("p", {
             effect() {
                 return player.points.add(1).log(3).add(1).pow(1.6)
             },
-            effectDisplay() { return format(upgradeEffect('p', 16))+"x" }, // Add formatting to the effect
+            effectDisplay() { return format("×" + upgradeEffect('p', 16))}, // Add formatting to the effect
         },
         21: {
           title: "Mysterious point source",
@@ -102,7 +102,7 @@ addLayer("p", {
         },
         31: {
             title: "Doublifier 7: It's About Time",
-            description: "Unlocks something very epic",
+            description: "bruh.mp4",
             cost: new Decimal(1000000),
         },
         32: {
@@ -122,7 +122,7 @@ addLayer("r", {
 		points: new Decimal(0),
     }},
     color: "FFFFFF",
-    requires: new Decimal(1000000), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1e10), // Can be a function that takes requirement increases into account
     resource: "rebirth points", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -151,6 +151,32 @@ addLayer("r", {
         title: "Prestige Powah",
         description: "Do people even read these?",
         cost: new Decimal(1)
+      },
+      22: {
+        title: "Rebirth Multiplier",
+        description: "Finally, rebirth points are useful!",
+        cost: new Decimal(2),
+        effect() {
+            return player['r'].points.add(2).pow(0.5)
+        },
+        effectDisplay() { return format("×" + upgradeEffect('r', 22)) }, // Add formatting to the effect
       }
+    },
+    buyables: {
+        11: {
+            cost(x) { return new Decimal(3).mul(x) },
+            display() { return "Eternal Multiplication" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            effect() ;{
+                return player[getBuyableAmount].pow(2)
+            }    
+            
+            },
+            etc
+        },
+        etc
     }
 })

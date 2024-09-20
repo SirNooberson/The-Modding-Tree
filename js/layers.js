@@ -162,21 +162,5 @@ addLayer("r", {
         effectDisplay() { return format("×" + upgradeEffect('r', 22)) }, // Add formatting to the effect
       }
     },
-    buyables: {
-        11: {
-            cost(x) { return new Decimal(3).mul(x) },
-            display() { return "Eternal Multiplication" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
-            buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            effect() ;{
-                return player[getBuyableAmount].pow(2)
-            }    
-            
-            },
-            etc
-        },
-        etc
-    }
+    
 })

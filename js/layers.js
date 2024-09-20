@@ -59,7 +59,7 @@ addLayer("p", {
             effect() {
                 return player['p'].points.add(1).pow(0.5)
             },
-            effectDisplay() { return format("×"+upgradeEffect('p', 15))}, // Add formatting to the effect
+            effectDisplay() { return format(upgradeEffect('p', 15)) + "x"}, // Add formatting to the effect
         },
         16: {
             title: "Selfboost",
@@ -68,7 +68,7 @@ addLayer("p", {
             effect() {
                 return player.points.add(1).log(3).add(1).pow(1.6)
             },
-            effectDisplay() { return format("×" + upgradeEffect('p', 16))}, // Add formatting to the effect
+            effectDisplay() { return format( upgradeEffect('p', 16)) + "x"}, // Add formatting to the effect
         },
         21: {
           title: "Mysterious point source",
@@ -159,7 +159,7 @@ addLayer("r", {
         effect() {
             return player['r'].points.add(2).pow(0.5)
         },
-        effectDisplay() { return format("×" + upgradeEffect('r', 22)) }, // Add formatting to the effect
+        effectDisplay() { return format( upgradeEffect('r', 22)) + "x"}, // Add formatting to the effect
       }
     },
     

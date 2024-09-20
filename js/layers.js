@@ -19,18 +19,20 @@ addLayer("p", {
         if (hasUpgrade('p',32)) mult = mult.times(2)
         if (hasUpgrade('r',11)) mult = mult.times(2)
         if (hasUpgrade('r',21)) mult = mult.times(1.431546345641234)
+        mult = mult.times(challengeEffect('r',11))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 0, // Row the layer is in on the tree (0 is the f
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown() {return true}
     ,
     passiveGeneration() { return (hasUpgrade("p", 23)?0.05:0)  },
+    branches: ['r',1],
     upgrades: {
         11: {
             title: "Doublifier",
@@ -162,5 +164,19 @@ addLayer("r", {
         effectDisplay() { return format( upgradeEffect('r', 22)) + "x"}, // Add formatting to the effect
       }
     },
+
+    challenges: {
+        11: {
+            name: "HERE COMES A NEW CHALLENGER",
+            challengeDescription: "Divide point gain by 180",
+            canComplete: function() {return player.points.gte(1e9)},
+            onEnter: function() {doReset(this.layer)},
+            rewardEffect() {return 1.6},
+        
+            
+        },
+        etc
+
+    }
     
 })

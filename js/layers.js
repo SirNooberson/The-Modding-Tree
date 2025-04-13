@@ -164,19 +164,5 @@ addLayer("r", {
         effectDisplay() { return format( upgradeEffect('r', 22)) + "x"}, // Add formatting to the effect
       }
     },
-
-    challenges: {
-        11: {
-            name: "HERE COMES A NEW CHALLENGER",
-            challengeDescription: "Divide point gain by 180",
-            canComplete: function() {return player.points.gte(1e9)},
-            onEnter: function() {doReset(this.layer)},
-            rewardEffect() {return 1.6},
-        
-            
-        },
-        etc
-
-    }
     
 })

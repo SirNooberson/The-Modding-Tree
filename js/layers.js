@@ -17,9 +17,6 @@ addLayer("p", {
         mult = new Decimal(1)
         if (hasUpgrade('p',25)) mult = mult.times(3)
         if (hasUpgrade('p',32)) mult = mult.times(2)
-        if (hasUpgrade('r',11)) mult = mult.times(2)
-        if (hasUpgrade('r',21)) mult = mult.times(1.431546345641234)
-        mult = mult.times(challengeEffect('r',11))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -32,7 +29,7 @@ addLayer("p", {
     layerShown() {return true}
     ,
     passiveGeneration() { return (hasUpgrade("p", 23)?0.05:0)  },
-    branches: ['r',1],
+    branches: [],
     upgrades: {
         11: {
             title: "Doublifier",
@@ -56,7 +53,7 @@ addLayer("p", {
         },
         15: {
             title: "Finally, some novelty",
-            description: "Boosts point gain via prestige points",
+            description: "Boosts point gain based on prestige points",
             cost: new Decimal(16),
             effect() {
                 return player['p'].points.add(1).pow(0.5)

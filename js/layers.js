@@ -104,10 +104,5 @@ addLayer("p", {
             description: "bruh.mp4",
             cost: new Decimal(1000000),
         },
-        32: {
-            title: "Impossible?",
-            description: "Double prestige point gain cuz why not",
-            cost: new Decimal(1e24),
-        },
     },
 })
